@@ -25,7 +25,7 @@ reader = select_command.execute
 reader.each do |row|
     puts "  #{row['ID']}) #{row['VeggieName']}"
 end
-response = gets.downcase.chomp
+response = gets.chomp.downcase
 
 # Create a variable to store yield info from database
 veg_yield = ""
