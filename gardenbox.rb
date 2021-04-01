@@ -1,6 +1,6 @@
 require 'sqlite3' # specifies sqlite version to use.
 # Create connection with the database
-# Need to results as hash to be true for the rest to work
+# Need 'results as hash' to be true for the rest to work
 connection = SQLite3::Database.open "gardenbox.sqlite"
 connection.results_as_hash = true
 
@@ -20,8 +20,8 @@ select_command = connection.prepare "SELECT * FROM Vegetables"
 #opens reader
 reader = select_command.execute 
 
-# Loops through reader and saves the yieldInt cell from database
-# to the veg_yield variable for calculating below
+# Loops through reader and prints all the rowID cells 
+# and the vegetable name cells from the database
 reader.each do |row|
     puts "  #{row['ID']}) #{row['VeggieName']}"
 end
@@ -37,11 +37,12 @@ select_command = connection.prepare "SELECT * FROM Vegetables WHERE ID = '#{resp
 #opens reader
 reader = select_command.execute 
 
-# Loops through reader and saves the yieldInt cell from database
-# to the veg_yield variable for calculating below
-reader.each do |yield_db|
-    veg_yield = yield_db['YieldInt'].to_i
-    veg_type = yield_db['VeggieName']
+# Loops through reader, looking only at the row of the vegID chosen by user,
+# and saves the yieldInt to the veg_yield variable for calculating below 
+# and saves the VeggieName cell info to veg_type
+reader.each do |row|
+    veg_yield = row['YieldInt'].to_i
+    veg_type = row['VeggieName']
 end
 
 #Calculates the amount possible by dividing the int yield by 16 and multiplying the area

@@ -1,10 +1,16 @@
 ## Garden Boxes!!!!
 
-Write a program that will take in a users garden box size, then let them pick from a list of plants and tell them how many they can plant in that space.
+This program takes in a user's garden box size, then lets them pick from a list of plants and tell them how many of that chosen plant they would be able to plant in their garden box.
 
-Please create a database that will hold plants. You don't need to add more than 2 or 3 plants into the database for testing. Please make sure the database or a description of the database is included in your repo.
+The plant information, types and yields, are stored in a database (which is the gardenbox.sqlite file in this repo)
 
 
 ## To run
 
-Clone this repo then type `ruby program.rb`
+You will need to install Ruby's sqlite3 gem in order for the progam to run.
+
+## Future possible changes
+
+I would like to try adding functionality so the user could insert/add vegetables/yields to the database.
+
+Admittedly, I don't know how to work this out, but could be fun to try and get a box with more than one kind of vegetable.
