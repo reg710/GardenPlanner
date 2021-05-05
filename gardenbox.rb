@@ -4,6 +4,7 @@ require 'sqlite3' # specifies sqlite version to use.
 connection = SQLite3::Database.open "gardenbox.sqlite"
 connection.results_as_hash = true
 
+puts "Let's plan your garden!"
 puts "What is the length of your garden box in feet?"
 length = gets.chomp.to_i
 
@@ -12,7 +13,7 @@ width = gets.chomp.to_i
 
 area = length * width
 perimeter = (2 * length) + (2 * width)
-puts "In your garden, what would you like to plant?"
+puts "Choose from this list what you would like to plant:"
 
 # Select command to find per square foot yield from datbase
 select_command = connection.prepare "SELECT * FROM Vegetables" 
